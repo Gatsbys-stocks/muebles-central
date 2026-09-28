@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muebles Central · Tienda de muebles en el Raval, Barcelona</title>
+<meta name="description" content="Sofás, camas, colchones a medida, tocadores, armarios y electrodomésticos. Envío y montaje en Barcelona. C/ del Carme 106, Raval.">
+<meta property="og:title" content="Muebles Central · Tu hogar, a tu estilo">
+<meta property="og:description" content="Tienda de muebles y electrodomésticos en el Raval de Barcelona. Envío y montaje.">
+<meta property="og:image" content="img/tienda-1.jpg">
+<meta name="theme-color" content="#1d1a1a">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="announce"><div class="track">
+  <span><b>Envío y montaje</b> en Barcelona</span>
+  <span>Colchones personalizados con <b>3 años de garantía</b></span>
+  <span>Visítanos en el <b>Raval</b> · C/ del Carme 106</span>
+</div></div>
+
+<header class="top" id="top">
+  <div class="wrap hrow">
+    <button class="ic burger" id="openMenu" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="#inicio" aria-label="Muebles Central, inicio">
+      <img src="img/logo.jpg" alt="Logotipo de Muebles Central" width="54" height="54">
+      <span class="nm">Muebles Central<small>Tu hogar, a tu estilo</small></span>
+    </a>
+    <label class="search" for="q">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Buscar sofás, camas, colchones…" autocomplete="off">
+    </label>
+    <div class="hicons">
+      <a class="ic hide-m" id="hdrTiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.3 7.3 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z"/></svg></a>
+      <a class="ic hide-m" id="hdrInstagram" href="#redes" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <button class="ic" id="openFavs" aria-label="Favoritos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span class="badge" id="favCount" hidden>0</span></button>
+      <button class="ic" id="openCart" aria-label="Carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 7V6a3 3 0 0 1 6 0v1"/></svg><span class="badge" id="cartCount" hidden>0</span></button>
+    </div>
+  </div>
+  <nav class="main" aria-label="Categorías"><ul id="mainNav"></ul></nav>
+</header>
+
+<!-- Menú móvil -->
+<div class="drawer left" id="menuDrawer" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel" role="dialog" aria-label="Menú" aria-modal="true">
+    <div class="phead">
+      <span class="brand"><img src="img/logo.jpg" alt=""><span class="nm">Muebles Central</span></span>
+      <button class="ic" data-close aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div id="mobileNav"></div>
+  </div>
+</div>
+
+<!-- Carrito -->
+<div class="drawer right" id="cartDrawer" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel" role="dialog" aria-label="Carrito" aria-modal="true">
+    <div class="phead">
+      <b class="ptitle">Tu carrito</b>
+      <button class="ic" data-close aria-label="Cerrar carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-foot" id="cartFoot"></div>
+  </div>
+</div>
+
+<!-- Ficha de producto / checkout / favoritos -->
+<div class="modal" id="modal" hidden>
+  <div class="scrim" data-close></div>
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="ic mclose" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<div class="banner" id="banner" hidden></div>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Tienda de muebles · Raval, Barcelona</div>
+        <h1>Tu hogar,<br><em>a tu estilo</em></h1>
+        <p class="lead">Sofás, camas, colchones a medida, tocadores, armarios y electrodomésticos. Ven a verlos a nuestra tienda de la calle del Carme o cómpralos aquí. Te los llevamos a casa y te los montamos.</p>
+        <div class="btns">
+          <a class="btn dark" href="#catalogo">Ver catálogo</a>
+          <a class="btn wa js-wa" href="https://wa.me/34617635765" target="_blank" rel="noopener"><svg class="wa-i" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg> Escríbenos</a>
+        </div>
+        <div class="addr-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="js-address">Carrer del Carme 106, bajo · Puerta 2 · 08001 Barcelona</span></div>
+      </div>
+      <div class="collage" aria-label="Fotos de la tienda">
+        <figure><img src="img/tienda-1.jpg" alt="Salón en exposición con sofá en L y espejos"></figure>
+        <figure><img src="img/tienda-2.jpg" alt="Tocador blanco con luces"></figure>
+        <figure><img src="img/tienda-3.jpg" alt="Sofás y decoración en la tienda del Raval"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="shead"><div><div class="eyebrow">Compra por categoría</div><h2>¿Qué buscas para tu casa?</h2></div></div>
+      <div class="cats" id="cats"></div>
+    </div>
+  </section>
+
+  <section class="blk tight">
+    <div class="wrap promos">
+      <div class="promo a">
+        <div><div class="eyebrow ink">Hechos a tu medida</div><h3>Colchones personalizados</h3><p>Dinos la medida de tu cama y la firmeza que prefieres. Te lo preparamos y te lo llevamos a casa.</p></div>
+        <div class="promo-foot"><span class="stamp"><span><b>3</b>años de<br>garantía</span></span><button class="btn dark" data-goto="dormitorio" data-sub="Colchones">Ver colchones</button></div>
+      </div>
+      <div class="promo b">
+        <div><div class="eyebrow">Espacio extra</div><h3>Sofás cama para cada salón</h3><p>Duerme a las visitas sin renunciar a un sofá cómodo cada día.</p></div>
+        <div><button class="btn outline-light" data-goto="sofas" data-sub="Sofás cama">Ver sofás cama</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk tight" id="destacados-sec">
+    <div class="wrap">
+      <div class="shead"><div><div class="eyebrow">Novedades en tienda</div><h2>Lo más buscado</h2></div><a href="#catalogo" class="ulink">Ver todo el catálogo</a></div>
+      <div class="grid" id="featured"></div>
+    </div>
+  </section>
+
+  <div class="services">
+    <div class="wrap">
+      <div class="srv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h11v10H2zM13 9h4l3 3v4h-7"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><div><b>Envío a domicilio</b><span>Barcelona y alrededores</span></div></div>
+      <div class="srv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"/></svg><div><b>Montaje en casa</b><span>Te dejamos el mueble listo</span></div></div>
+      <div class="srv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg><div><b>Paga como prefieras</b><span id="payText">Con tarjeta o en la entrega</span></div></div>
+      <div class="srv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><div><b>3 años de garantía</b><span>En colchones personalizados</span></div></div>
+    </div>
+  </div>
+
+  <section class="blk" id="catalogo">
+    <div class="wrap">
+      <div class="shead"><div><div class="eyebrow">Catálogo</div><h2 id="catTitle">Todos los productos</h2></div>
+        <label class="sort">Ordenar
+          <select id="sort"><option value="new">Novedades</option><option value="asc">Precio: de menor a mayor</option><option value="desc">Precio: de mayor a menor</option></select>
+        </label>
+      </div>
+      <div class="tabs" id="tabs" role="group" aria-label="Filtrar por categoría"></div>
+      <div class="chips" id="subs" role="group" aria-label="Filtrar por tipo"></div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden>No encontramos productos con esa búsqueda. <a class="js-wa" href="https://wa.me/34617635765" target="_blank" rel="noopener">Pregúntanos por WhatsApp</a>: puede que lo tengamos en tienda.</p>
+    </div>
+  </section>
+
+  <section class="blk" id="redes">
+    <div class="wrap">
+      <div class="shead"><div><div class="eyebrow">Síguenos</div><h2>Mira la tienda en vídeo</h2></div></div>
+      <div class="social">
+        <div class="sbox">
+          <div class="stop">
+            <div class="handle"><img src="img/logo.jpg" alt=""><div><b>Muebles central</b><span class="js-tiktok-handle">@muebles_central · TikTok</span></div></div>
+            <a class="btn dark js-tiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener">Seguir en TikTok</a>
+          </div>
+          <div class="tgrid">
+            <a class="js-tiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener"><img src="img/tienda-1.jpg" alt="Salón en exposición" loading="lazy"></a>
+            <a class="js-tiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener"><img src="img/tienda-2.jpg" alt="Tocador con luces" loading="lazy"></a>
+            <a class="js-tiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener"><img src="img/tienda-3.jpg" alt="Muebles Central Raval BCN" loading="lazy"></a>
+            <a class="js-tiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener"><img src="img/tienda-4.jpg" alt="Colchones personalizados, garantía de 3 años" loading="lazy"></a>
+            <a class="js-tiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener"><img src="img/tienda-5.jpg" alt="Sofá camas" loading="lazy"></a>
+            <a class="js-tiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener"><img src="img/tienda-6.jpg" alt="Armarios y maletas" loading="lazy"></a>
+            <a class="js-tiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener"><img src="img/tienda-7.jpg" alt="Gran apertura de la tienda" loading="lazy"></a>
+            <a class="js-tiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener"><img src="img/tienda-0.jpg" alt="Salón de la tienda" loading="lazy"></a>
+          </div>
+        </div>
+        <div class="sbox" id="instagram">
+          <div class="stop">
+            <div class="handle"><span class="ig-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span><div><b>Instagram</b><span id="igHandle">Muy pronto</span></div></div>
+            <a class="btn dark" id="igBtn" href="#" target="_blank" rel="noopener" hidden>Seguir en Instagram</a>
+          </div>
+          <div class="igrid" id="igGrid"></div>
+          <p class="soon" id="igText">Pronto subiremos aquí fotos de la tienda y de los muebles en casa de nuestros clientes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visita">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Visítanos o contáctanos</div>
+        <h2>Ven a ver los muebles en persona</h2>
+        <div class="info">
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><div class="v js-address1">Carrer del Carme 106, bajo · Puerta 2</div><small><span class="js-city">08001 Barcelona</span> · Metro Liceu · <a href="https://www.google.com/maps/search/?api=1&query=Carrer+del+Carme+106+Barcelona" target="_blank" rel="noopener">Cómo llegar</a></small></div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><div id="phones"><div class="v"><a href="tel:+34617635765">617 635 765</a></div><div class="v"><a href="tel:+34672303715">672 303 715</a></div><small>Teléfono y WhatsApp</small></div></div>
+          <div class="row" id="hoursRow" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="v">Horario</div><small id="hours"></small></div></div>
+        </div>
+        <div class="btns" style="margin-top:26px">
+          <a class="btn wa js-wa" href="https://wa.me/34617635765" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Carrer+del+Carme+106+Barcelona" target="_blank" rel="noopener">Abrir en Google Maps</a>
+        </div>
+      </div>
+      <figure class="vfig"><img src="img/tienda-3.jpg" alt="Interior de la tienda" loading="lazy"><img src="img/tienda-7.jpg" alt="Salón expuesto en la tienda" loading="lazy"></figure>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand"><img src="img/logo.jpg" alt=""><span class="nm">Muebles Central<small>Tu hogar, a tu estilo</small></span></div>
+      <p class="fdesc">Tienda de muebles y electrodomésticos en el Raval de Barcelona. Envío y montaje.</p>
+      <div class="fsoc">
+        <a class="js-tiktok" href="https://www.tiktok.com/@muebles_central" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.3 7.3 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z"/></svg></a>
+        <a id="footInstagram" href="#redes" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a class="js-wa" href="https://wa.me/34617635765" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>
+      </div>
+    </div>
+    <div><h4>Categorías</h4><ul id="footCats"></ul></div>
+    <div><h4>Ayuda</h4><ul><li><a href="#visita">Envío y montaje</a></li><li><a href="#visita">Formas de pago</a></li><li><a class="js-wa" href="https://wa.me/34617635765" target="_blank" rel="noopener">Pedir precio por WhatsApp</a></li></ul></div>
+    <div><h4>Tienda</h4><ul><li class="js-address1">Carrer del Carme 106, bajo · Puerta 2</li><li class="js-city">08001 Barcelona</li><li id="footPhones">617 635 765 · 672 303 715</li></ul></div>
+    <div class="legal"><span>© <span id="year">2026</span> Muebles Central · Barcelona</span><span>Aviso legal · Privacidad · Cookies</span></div>
+  </div>
+</footer>
+
+<a class="wafab js-wa" href="https://wa.me/34617635765" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>
+
+<script src="js/illustrations.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
